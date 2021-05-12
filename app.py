@@ -8,6 +8,14 @@ from sqlalchemy.orm.session import Session
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
+st.markdown('''
+<style>
+body {
+  background-image: url("social.png");
+}
+</style>
+''', unsafe_allow_html=True)
+
 def opendb():
     engine = create_engine('sqlite:///db.sqlite3') # connect
     Session =  sessionmaker(bind=engine)
@@ -36,26 +44,32 @@ if st.checkbox("Videos"):
           with open(path,'wb') as f:
             f.write(video.getbuffer())
             save_file(path)
-            st.info('upload succesfully') 
-if st.checkbox("detect on video file"):
+            st.info('Upload Succesfully') 
+if st.checkbox("Detect on video file"):
   db = opendb()
   videos=db.query(Video).all()
   db.close()
-  vid = st.selectbox('select a video to play',videos)
-  if vid and os.path.exists(vid.path) and st.button('start detection'):
+  vid = st.selectbox('Select a video to play',videos)
+  if vid and os.path.exists(vid.path) and st.button('Start Detection'):
       use_video(vid.path,"output/out.mp4")
+     
 
 if st.checkbox("Webcam"):
-   if st.button('open webcam'):
+   if st.button('Open Webcam'):
        use_webcam()
     
 if st.checkbox("About Project"):
-    st.image('social.png')
-    st.info('In the fight against the COVID-19, social distancing has proven to be a very effective measure to slow down the spread of the disease. People are asked to limit their interactions with each other, reducing the chances of the virus being spread with physical or close contact.In past also AI/Deep Learning has shown promising results on a number of daily life problems. In this, we will go through detailed explanation of how we can use Python, Computer Vision to monitor social distancing at public places and workplaces.To ensure social distancing protocol in public places and workplace, we are developing social distancing detection tool that can monitor if people are keeping a safe distance from each other by analyzing recorded videos by using cameras.')
-    
+    st.image('sd3.jpg')
+    st.info('Social distancing is important in times of epidemics and pandemics to prevent the spread of disease. Can we build a social distancing detector with OpenCV. ')
+    st.image('dig.gif')
+    st.info(' Social distancing is crucial to preventing the spread of disease. Using computer vision technology based on OpenCV and YOLO-based deep learning, we are able to estimate the social distance of people in video streams. ')
+    st.image('flow chart.png')
+    st.info(' The steps involved in an OpenCV-based social distancing application.')
+
+
 if st.checkbox("Creator info"):
     st.header("About The Project Creators")
     st.write('Anchal Singh')
     st.write('Deepmala')
-    st.image('code.jpg')
+    st.image('code2.png')
 
