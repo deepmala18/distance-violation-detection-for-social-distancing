@@ -130,5 +130,5 @@ def use_video(inp,out,display=True):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    use_video(inp='vid1.mp4', out='out.mp4')
+    use_video(inp='vid2.mp4', out='out.mp4')
 
