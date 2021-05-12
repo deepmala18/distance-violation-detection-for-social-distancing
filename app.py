@@ -8,14 +8,6 @@ from sqlalchemy.orm.session import Session
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
-st.markdown('''
-<style>
-body {
-  background-image: url("social.png");
-}
-</style>
-''', unsafe_allow_html=True)
-
 def opendb():
     engine = create_engine('sqlite:///db.sqlite3') # connect
     Session =  sessionmaker(bind=engine)
