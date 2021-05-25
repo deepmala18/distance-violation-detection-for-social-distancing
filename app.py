@@ -63,7 +63,7 @@ if st.checkbox("Creator info"):
     st.header("About The Project Creators")
     st.write('Anchal Singh')
     st.write('Deepmala')
-    st.image('code2.png')
+    st.image('g.gif')
 
     
 
